@@ -30,7 +30,7 @@ const Input = (props) => {
                 isValid = true
             }
         }
-        else if (value === undefined || value === null) {
+        else if (value === '' || value === undefined || value === null) {
             setErro("O campo não pode ser vazio!")
         } else if (value.length <= 5) {
             setErro("O campo precisa ter mais que 5 caracteres.")
@@ -47,9 +47,10 @@ const Input = (props) => {
     return <div className={`input-group has-validation ${styles.input}`}>
         <input type="text" {...props} onChange={handleErrors}
             className={`form-control ${props.className} ${erro ? 'is-invalid' : ''}`} />
-        <div className="invalid-feedback">
+        {erro && <div className="invalid-feedback"
+            data-testid={`${props["data-testid"]}-erro`}>
             {erro}
-        </div>
+        </div>}
     </div>
 }
 

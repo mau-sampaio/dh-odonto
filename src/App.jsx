@@ -9,9 +9,9 @@ import { AuthProvider } from "./context/useAuth";
 
 function App() {
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+      <ThemeProvider>
+        <AuthProvider>
           <Routes>
             <Route path="" element={<MainLayout />}>
               <Route path="" element={<Home />} />
@@ -20,9 +20,9 @@ function App() {
               <Route path="/dentista/:id" element={<Detail />} />
             </Route>
           </Routes>
-        </BrowserRouter>
-      </AuthProvider>
-    </ThemeProvider >
+        </AuthProvider>
+      </ThemeProvider >
+    </BrowserRouter>
   );
 }
 

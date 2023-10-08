@@ -4,12 +4,16 @@ import { api } from "../services/axios";
 
 const Home = () => {
   const [dentistas, setDentistas] = useState([])
+  const [aviso, setAviso] = useState("")
 
   const getDentistas = async () => {
-    const { data } = await api.get('/dentista')
-    setDentistas(data)
+    try {
+      const { data } = await api.get('/dentista')
+      setDentistas(data)
+    } catch {
+      setAviso("Não foi possivel carregar a lista. Tente novamente!")
+    }
   }
-
 
   useEffect(() => {
     getDentistas()
@@ -24,6 +28,9 @@ const Home = () => {
             {...dentista} />
         })}
       </div>
+      {aviso && <div data-testid="aviso">
+        {aviso}
+      </div>}
     </>
   );
 };

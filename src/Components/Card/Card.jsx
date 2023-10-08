@@ -8,7 +8,8 @@ const Card = ({ nome, sobrenome, matricula, usuario }) => {
 
   return (
     <Link to={`/dentista/${matricula}`}>
-      <div className={`card ${theme}`}>
+      <div className={`card ${theme}`}
+        data-testid="card">
         <img
           className="card-img-top"
           src="/images/doctor.jpg"

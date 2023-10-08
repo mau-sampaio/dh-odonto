@@ -39,6 +39,7 @@ const LoginForm = () => {
               className={`form-control ${styles.inputSpacing}`}
               placeholder="Login"
               name="login"
+              data-testid="input-login"
               required
             />
             <Input
@@ -47,11 +48,13 @@ const LoginForm = () => {
               placeholder="Password"
               name="password"
               type="password"
+              data-testid="input-password"
               required
             />
             <button
               className="btn btn-primary"
               type="submit"
+              data-testid="btn-login"
               disabled={!isValid}>
               Enviar
             </button>
